@@ -1,54 +1,19 @@
 <template>
   <div>
     <i-grid i-class="no-border">
-    <i-grid-item i-class="no-border">
+    <i-grid-item @click="goType(grid)" v-for="grid in grids" :key="grid" i-class="no-border">
         <i-grid-icon>
-            <image src="/static/images/1.png" />
+            <image :src="grid.image" />
         </i-grid-icon>
-        <i-grid-label>消息</i-grid-label>
+        <i-grid-label>{{grid.title}}</i-grid-label>
     </i-grid-item>
-    <i-grid-item i-class="no-border">
-        <i-grid-icon>
-            <image src="/static/images/2.png" />
-        </i-grid-icon>
-        <i-grid-label>科目一</i-grid-label>
-    </i-grid-item>
-    <i-grid-item i-class="no-border">
-        <i-grid-icon>
-            <image src="/static/images/3.png" />
-        </i-grid-icon>
-        <i-grid-label>科目二</i-grid-label>
-    </i-grid-item>
-    <i-grid-item i-class="no-border">
-        <i-grid-icon>
-            <image src="/static/images/4.png" />
-        </i-grid-icon>
-        <i-grid-label>科目三</i-grid-label>
-    </i-grid-item>
-    <i-grid-item i-class="no-border">
-        <i-grid-icon>
-            <image src="/static/images/5.png" />
-        </i-grid-icon>
-        <i-grid-label>科目四</i-grid-label>
-    </i-grid-item>
+    
   </i-grid>
-  <i-panel title="最新消息">
+  <i-panel title="title_name">
     <view style="padding: 15px;">
-      <i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-         <view slot="content">内容不错</view>
-         <view slot="footer">尾部内容</view>
-      </i-card>
-       <i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-         <view slot="content">内容不错</view>
-         <view slot="footer">尾部内容</view>
-      </i-card>
-       <i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-         <view slot="content">内容不错</view>
-         <view slot="footer">尾部内容</view>
-      </i-card>
-       <i-card title="卡片标题" extra="额外内容" thumb="https://i.loli.net/2017/08/21/599a521472424.jpg">
-         <view slot="content">内容不错</view>
-         <view slot="footer">尾部内容</view>
+      <i-card v-for="item in top" :key="item" i-class="split" :extra="item.subject" :thumb="item.image">
+         <view slot="content">{{item.remark}}</view>
+         <view slot="footer">{{item.time}}</view>
       </i-card>
     </view>
   </i-panel>
@@ -59,11 +24,29 @@
 export default {
   data () {
     return {
+      title_name:"最新消息",
+      grids:[
+        {title:"消息",image:"/static/images/1.png"},
+        {title:"科目一",image:"/static/images/2.png"},
+        {title:"科目二",image:"/static/images/3.png"},
+        {title:"科目三",image:"/static/images/4.png"},
+        {title:"科目四",image:"/static/images/5.png"},
+      ],
+      top:[
+        {subject:"科目",time:"时间1",image:"https://i.loli.net/2017/08/21/599a521472424.jpg",remark:"消息"},
+        {subject:"科目",time:"时间2",image:"https://i.loli.net/2017/08/21/599a521472424.jpg",remark:"消息"},
+        {subject:"科目",time:"时间3",image:"https://i.loli.net/2017/08/21/599a521472424.jpg",remark:"消息"},
+        {subject:"科目",time:"时间4",image:"https://i.loli.net/2017/08/21/599a521472424.jpg",remark:"消息"}
+      ],
     }
   },
 
   methods: {
- 
+    goType(type){
+      console.log(type)      
+      let url = '../list/main?type=' + type.title
+      mpvue.navigateTo({ url })
+    }
   },
 
   created () {
