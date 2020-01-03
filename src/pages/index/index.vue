@@ -1,5 +1,13 @@
 <template>
   <div>
+     <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <view class="swiper-item {{item}}"></view>
+          </swiper-item>
+        </block>
+      </swiper>
     <i-grid i-class="no-border">
     <i-grid-item @click="goType(grid)" v-for="grid in grids" :key="grid" i-class="no-border">
         <i-grid-icon>
