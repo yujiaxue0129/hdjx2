@@ -41,8 +41,8 @@ export default {
         {title:"科目四",image:"/static/images/5.png"},
       ],
       top:[
-        {subject:"科目",time:"时间1",image:"https://i.loli.net/2017/08/21/599a521472424.jpg",remark:"消息"},
-        {subject:"科目",time:"时间2",image:"https://i.loli.net/2017/08/21/599a521472424.jpg",remark:"消息"},
+        {subject:"科目",time:"时间1",image:"/static/images/lamp.png",remark:"消息"},
+        {subject:"科目",time:"时间2",image:"/static/images/shengdanjie-lin.png",remark:"消息"},
         {subject:"科目",time:"时间3",image:"https://i.loli.net/2017/08/21/599a521472424.jpg",remark:"消息"},
         {subject:"科目",time:"时间4",image:"https://i.loli.net/2017/08/21/599a521472424.jpg",remark:"消息"}
       ],
