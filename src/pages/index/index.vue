@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <swiper
+      <swiper
       :indicator-dots="indicatorDots"
       :autoplay="autoplay"
       :interval="interval"
@@ -14,14 +14,7 @@
       </block>
     </swiper>
 
-     <swiper indicator-dots="indicatorDots"
-        autoplay="autoplay" interval="interval" duration="duration">
-        <block wx:for="background" wx:key="*this">
-          <swiper-item>
-            <view class="swiper-item item"></view>
-          </swiper-item>
-        </block>
-      </swiper>
+
 
     <i-grid i-class="no-border">
     <i-grid-item @click="goType(grid)" v-for="grid in grids" :key="grid" i-class="no-border">
@@ -32,7 +25,7 @@
     </i-grid-item>
     
   </i-grid>
-  <i-panel title="title_name">
+  <i-panel title="最新消息">
     <view style="padding: 15px;">
       <i-card @click="tiao(item)" v-for="item in top" :key="item" i-class="split" :extra="item.name" :thumb="item.image">
          <view slot="content">{{item.remark}}</view>
@@ -57,12 +50,14 @@ export default {
       ],
       top:[
         {name:"元旦活动",time:"2020.01.01",image:"/static/images/lamp.png",remark:"消息"},
-        {name:"圣诞节活动",time:"2019.12.25",image:"/static/images/shengdanjie-lin.png",remark:"消息"},
-        {name:"万圣节活动",time:"2019.11.01",image:"witcheshat.png",remark:"消息"},
-        {name:"情人节活动",time:"2019.02.14",image:"calendar.png",remark:"消息"},
+        {name:"圣诞节活动",time:"2019.12.25",image:"/static/images/shengdanjie-lingdang.png",remark:"消息"},
+        {name:"万圣节活动",time:"2019.11.01",image:"/static/images/witcheshat.png",remark:"消息"},
+        {name:"情人节活动",time:"2019.02.14",image:"/static/images/calendar.png",remark:"消息"},
       ],
       imgUrls:[
-        ""
+        '/static/images/01.jpg',
+        '/static/images/02.jpg',
+        '/static/images/03.jpg'
       ]
     }
   },
