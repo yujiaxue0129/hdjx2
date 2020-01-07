@@ -27,7 +27,7 @@
   </i-grid>
   <i-panel title="最新消息">
     <view style="padding: 15px;">
-      <i-card @click="tiao(item)" v-for="item in top" :key="item" i-class="split" :extra="item.name" :thumb="item.image">
+      <i-card @click="goTo(item)" v-for="item in top" :key="item" i-class="split" :extra="item.name" :thumb="item.image">
          <view slot="content">{{item.remark}}</view>
          <view slot="footer">{{item.time}}</view>
       </i-card>
@@ -49,10 +49,10 @@ export default {
         {title:"科目四",image:"/static/images/5.png"},
       ],
       top:[
-        {name:"元旦活动",time:"2020.01.01",image:"/static/images/lamp.png",remark:"消息"},
-        {name:"圣诞节活动",time:"2019.12.25",image:"/static/images/shengdanjie-lingdang.png",remark:"消息"},
-        {name:"万圣节活动",time:"2019.11.01",image:"/static/images/witcheshat.png",remark:"消息"},
-        {name:"情人节活动",time:"2019.02.14",image:"/static/images/calendar.png",remark:"消息"},
+        {name:"元旦活动",time:"2020.01.01",image:"/static/images/lamp.png",remark:"新年新气象，为庆元旦，宏达驾校现推出特惠活动，即日起报名至1月10日，享特惠价2500元！"},
+        {name:"圣诞节活动",time:"2019.12.25",image:"/static/images/shengdanjie-lingdang.png",remark:"叮叮当，叮叮当！宏达驾校和圣诞老人一起来送礼啦！即日起报名至12月31日，前25名享特惠价2500元！"},
+        {name:"万圣节活动",time:"2019.11.01",image:"/static/images/witcheshat.png",remark:"不给糖就捣蛋！宏达驾校现推出万圣节特惠活动，凡报名即可参与抽奖，欢乐谷门票拿到手软！"},
+        {name:"情人节活动",time:"2019.02.14",image:"/static/images/calendar.png",remark:"又是一年情人节，宏达驾校给情侣们送福利啦！即日起两人组团报名至2月20日，学费立减500！"},
       ],
       imgUrls:[
         '/static/images/01.jpg',
@@ -67,13 +67,15 @@ export default {
       console.log(type)      
       let url = '../list/main?type=' + type.title
       mpvue.navigateTo({ url })
+    },
+    goTo(type){
+    console.log(type)      
+      let url = '../list/main?type=' + type.name
+      mpvue.navigateTo({ url })
     }
   },
-   tiao(type){
-    console.log(type)      
-      let url = '../map/main'
-      mpvue.navigateTo({ url })
-  },
+
+  
 
   created () {
   }
